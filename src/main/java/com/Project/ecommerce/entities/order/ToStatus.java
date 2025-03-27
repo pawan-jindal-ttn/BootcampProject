@@ -1,0 +1,17 @@
+package com.Project.ecommerce.entities.order;
+
+public enum ToStatus {
+    CANCELLED,
+    ORDER_CONFIRMED,
+    ORDER_REJECTED,
+    REFUND_INITIATED,
+    REFUND_COMPLETED,
+    CLOSED,
+    ORDER_SHIPPED,
+    DELIVERED,
+    RETURN_REQUESTED,
+    RETURN_REJECTED,
+    RETURN_APPROVED,
+    PICK_UP_INITIATED,
+    PICK_UP_COMPLETED
+}
