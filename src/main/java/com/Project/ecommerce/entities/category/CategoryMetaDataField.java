@@ -11,7 +11,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CategoryMetaDataField {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

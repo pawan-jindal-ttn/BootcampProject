@@ -12,10 +12,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Seller extends User{
-    private long GST;
-    private long companyContact;
+    private Long GST;
+    private Long companyContact;
     private String companyName;
 
     @OneToMany(mappedBy = "seller")

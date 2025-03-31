@@ -13,17 +13,16 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class ProductVariation {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private int quantityAvailable;
-    private long price;
+    private Integer quantityAvailable;
+    private Long price;
     private String metaData;
     private String primaryImageName;
-    private boolean isActive;
+    private Boolean isActive;
 
     @ManyToOne
     Product product;

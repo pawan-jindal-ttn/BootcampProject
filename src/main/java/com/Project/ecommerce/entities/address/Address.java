@@ -13,7 +13,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,6 +22,6 @@ public class Address {
     private String state;
     private String country;
     private String addressLine;
-    private long zipCode;
+    private String zipCode;
     private String label;
 }

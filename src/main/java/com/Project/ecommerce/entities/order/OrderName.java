@@ -13,12 +13,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class OrderName {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private long amountPaid;
+    private Long amountPaid;
     private Date dateCreated;
     private String paymentMethod;
     private String customerAddressCity;

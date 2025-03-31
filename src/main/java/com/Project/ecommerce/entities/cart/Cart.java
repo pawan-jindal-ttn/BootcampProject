@@ -12,10 +12,9 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Cart {
-    private int quantity;
-    private boolean isWishlistItem;
+    private Integer quantity;
+    private Boolean isWishlistItem;
 
     @Id
     @ManyToOne
