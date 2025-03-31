@@ -6,6 +6,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +19,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
@@ -36,20 +39,21 @@ public class User {
     @Size(min = 3, message = "Enter at least 3 characters")
     private String lastName;
 
-    @NotBlank(message = "Password cannot be empty")
-    @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
+    @Pattern(
+            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,15}$",
+            message = "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character")
     private String password;
 
 
-    private boolean isDeleted;
-    private boolean isActive;
-    private boolean isExpired;
-    private boolean isLocked;
-    private int invalidAttemptCount;
-    private Date passwordUpdateDate;
+    private Boolean isDeleted = false;
+    private Boolean isActive = true;
+    private Boolean isExpired = false;
+    private Boolean isLocked = false;
+    private int invalidAttemptCount = 0;
+    private Date passwordUpdateDate = new Date();
 
-    @ManyToMany
-    private List<Role> roles;
+    @ManyToOne
+    private Role role;
 
     @OneToMany
     @JoinColumn(name = "user_id")
