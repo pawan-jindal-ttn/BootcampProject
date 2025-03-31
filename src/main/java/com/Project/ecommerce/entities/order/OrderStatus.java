@@ -12,18 +12,19 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private Date transitionDate;
     private String transitionNotesComments;
 
     @Enumerated(EnumType.STRING)
-    private FromStatus fromStatus;
+    private Status fromStatus;
 
     @Enumerated(EnumType.STRING)
-    private ToStatus toStatus;
+    private Status toStatus;
+
+    @ManyToOne
+    private OrderProduct orderProduct;
 }

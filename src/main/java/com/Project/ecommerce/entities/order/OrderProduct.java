@@ -4,6 +4,7 @@ import com.Project.ecommerce.entities.product.ProductVariation;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -11,17 +12,19 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private int quantity;
-    private long price;
+    private Integer quantity;
+    private Long price;
 
     @ManyToOne
     private OrderName orderName;
 
     @ManyToOne
     private ProductVariation productVariation;
+
+    @OneToMany(mappedBy = "orderProduct")
+    private List<OrderStatus> orderStatuses;
 }
