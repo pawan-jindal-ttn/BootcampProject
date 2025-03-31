@@ -4,7 +4,9 @@ import com.Project.ecommerce.entities.cart.Cart;
 import com.Project.ecommerce.entities.order.OrderName;
 import com.Project.ecommerce.entities.product.ProductReview;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.criteria.Order;
 import lombok.*;
 
 import java.util.List;
@@ -14,9 +16,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Customer extends User{
-    private long customerContact;
+    private Long customerContact;
 
     @OneToMany(mappedBy = "customer")
     private List<ProductReview> productReviews;
@@ -25,5 +26,5 @@ public class Customer extends User{
     private List<Cart> carts;
 
     @OneToMany(mappedBy = "customer")
-    private List<OrderName> ordersNames;
+    private List<OrderName> orderNames;
 }

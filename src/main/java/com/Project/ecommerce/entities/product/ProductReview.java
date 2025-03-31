@@ -11,19 +11,16 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class ProductReview {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private String review;
-    private int rating;
+    private Integer rating;
 
     @ManyToOne
     private Customer customer;
     @ManyToOne
     private Product product;
-
-
 }

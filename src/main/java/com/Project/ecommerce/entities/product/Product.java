@@ -13,7 +13,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -21,11 +20,11 @@ public class Product {
 
     private String name;
     private String description;
-    private boolean isCancellable;
-    private boolean isReturnable;
+    private Boolean isCancellable;
+    private Boolean isReturnable;
     private String brand;
-    private boolean isActive;
-    private boolean isDeleted;
+    private Boolean isActive;
+    private Boolean isDeleted;
 
     @ManyToOne
     private Category category;
