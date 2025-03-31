@@ -1,6 +1,6 @@
 package com.Project.ecommerce.entities.order;
 
-public enum FromStatus {
+public enum Status {
     ORDER_PLACED,
     CANCELLED,
     ORDER_REJECTED,
