@@ -1,15 +1,10 @@
 package com.Project.ecommerce.entities.user;
 
 import com.Project.ecommerce.entities.address.Address;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Year;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -28,15 +23,17 @@ public class User {
     @Email
     private String email;
 
-    @NotBlank
-    @Size(min = 3, message = "Enter at least 3 characters")
+    @NotNull(message = "First name cannot be null")
+    @NotBlank(message = "First name cannot be blank")
+    @Size(min = 3, max = 15, message = "First name must be between 3 and 15 characters")
     private String firstName;
 
-    @Nullable
+    @Size(max = 15, message = "Middle name must not exceed 15 characters")
     private String middleName;
 
-    @NotBlank
-    @Size(min = 3, message = "Enter at least 3 characters")
+    @NotNull(message = "Last name cannot be null")
+    @NotBlank(message = "Last name cannot be blank")
+    @Size(min = 3, max = 15, message = "First name must be between 3 and 15 characters")
     private String lastName;
 
     @Pattern(
@@ -46,7 +43,7 @@ public class User {
 
 
     private Boolean isDeleted = false;
-    private Boolean isActive = true;
+    private Boolean isActive = false;
     private Boolean isExpired = false;
     private Boolean isLocked = false;
     private int invalidAttemptCount = 0;
