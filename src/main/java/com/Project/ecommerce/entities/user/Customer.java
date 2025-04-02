@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer extends User{
-    private Long customerContact;
+    private String customerContact;
 
     @OneToMany(mappedBy = "customer")
     private List<ProductReview> productReviews;
